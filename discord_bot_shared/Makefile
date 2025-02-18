@@ -1,3 +1,9 @@
+# Load environment variables from .env if it exists
+ifneq (,$(wildcard .env))
+    include .env
+    export
+endif
+
 # Use Python 3.11 explicitly
 PYTHON = python
 
@@ -28,6 +34,6 @@ synth:
 
 deploy:
 	@echo "Deploying CDK stack..."
-	$(CDK) deploy --require-approval never
+	cd src/cdk && $(CDK) deploy --require-approval never --profile $(AWS_PROFILE) --region $(AWS_REGION)
 
 all: install lint format test synth deploy
