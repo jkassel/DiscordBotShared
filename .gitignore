@@ -1,0 +1,18 @@
+# Ignore Intellij files
+.idea
+
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+
+# Ignore local environment files
+.env
+venv/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore CDK assets
+cdk.out/
+node_modules/
